@@ -9,6 +9,7 @@ WORKDIR /app
 RUN apk add --no-cache git
 COPY --from=builder /app /app
 COPY docker-entrypoint.sh /app/
+#RUN ls
 RUN dos2unix /app/docker-entrypoint.sh && chmod +x /app/docker-entrypoint.sh
 EXPOSE 2075
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
